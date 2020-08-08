@@ -86,22 +86,7 @@
         </div>
     </section>
 
-<<<<<<< Updated upstream
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-    <section id="main">
+    <<<<<<< Updated upstream=======<section id="main">
         <div class="container my-5">
             <div class="row" id="assess">
                 <div class="md-8">
@@ -160,94 +145,94 @@
                 </div>
             </div>
         </div>
-    </section>
-    <div id="map"></div>
-    <script>
-        // Initialize and add the map
+        </section>
+        <div id="map"></div>
+        <script>
+            // Initialize and add the map
 
-        function initMap() {
-            let map;
-            let service;
-            let infowindow;
-            var curlat, curlon, curloc;
-            window.onload = function () {
-                var startPos;
-                var geoOptions = {
-                    enableHighAccuracy: true
-                }
+            function initMap() {
+                let map;
+                let service;
+                let infowindow;
+                var curlat, curlon, curloc;
+                window.onload = function () {
+                    var startPos;
+                    var geoOptions = {
+                        enableHighAccuracy: true
+                    }
 
-                var geoSuccess = function (position) {
-                    startPos = position;
-                    curlat = Number(startPos.coords.latitude);
-                    curlon = Number(startPos.coords.longitude);
+                    var geoSuccess = function (position) {
+                        startPos = position;
+                        curlat = Number(startPos.coords.latitude);
+                        curlon = Number(startPos.coords.longitude);
 
-                    curloc = { lat: curlat, lng: curlon };
-                    map = new google.maps.Map(
-                        document.getElementById('map'), { zoom: 14, center: curloc });
+                        curloc = { lat: curlat, lng: curlon };
+                        map = new google.maps.Map(
+                            document.getElementById('map'), { zoom: 14, center: curloc });
 
-                    var marker = new google.maps.Marker({ position: curloc, map: map });
+                        var marker = new google.maps.Marker({ position: curloc, map: map });
 
-                    curloc2 = { lat: curlat + 1, lng: curlon + 1 };
-                    marker = new google.maps.Marker({ position: curloc2, map: map });
+                        curloc2 = { lat: curlat + 1, lng: curlon + 1 };
+                        marker = new google.maps.Marker({ position: curloc2, map: map });
 
-                    var request = {
-                        location: new google.maps.LatLng(curlat, curlon),
-                        radius: 5000,
-                        type: ['hospital']
-                    };
-                    service = new google.maps.places.PlacesService(map);
-                    service.nearbySearch(request, (results, status) => {
-                        if (status === google.maps.places.PlacesServiceStatus.OK) {
-                            for (let i = 0; i < results.length; i++) {
-                                createMarker(results[i]);
+                        var request = {
+                            location: new google.maps.LatLng(curlat, curlon),
+                            radius: 5000,
+                            type: ['hospital']
+                        };
+                        service = new google.maps.places.PlacesService(map);
+                        service.nearbySearch(request, (results, status) => {
+                            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                                for (let i = 0; i < results.length; i++) {
+                                    createMarker(results[i]);
+                                }
                             }
                         }
-                    }
-                    );
+                        );
 
-                };
-                function createMarker(place) {
-                    const marker = new google.maps.Marker({
-                        map,
-                        position: place.geometry.location
-                    });
-                    google.maps.event.addListener(marker, "click", () => {
-                        infowindow.setContent(place.name);
-                        infowindow.open(map);
-                    });
+                    };
+                    function createMarker(place) {
+                        const marker = new google.maps.Marker({
+                            map,
+                            position: place.geometry.location
+                        });
+                        google.maps.event.addListener(marker, "click", () => {
+                            infowindow.setContent(place.name);
+                            infowindow.open(map);
+                        });
+                    }
+                    var geoError = function (error) {
+                        console.log('Error occurred. Error code: ' + error.code);
+                        // error.code can be:
+                        //   0: unknown error
+                        //   1: permission denied
+                        //   2: position unavailable (error response from location provider)
+                        //   3: timed out
+                    };
+                    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
                 }
-                var geoError = function (error) {
-                    console.log('Error occurred. Error code: ' + error.code);
-                    // error.code can be:
-                    //   0: unknown error
-                    //   1: permission denied
-                    //   2: position unavailable (error response from location provider)
-                    //   3: timed out
-                };
-                navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
             }
-        }
-    </script>
-    <!--Load the API from the specified URL
+        </script>
+        <!--Load the API from the specified URL
         * The async attribute allows the browser to render the page while the API loads
         * The key parameter will contain your own API key (which is not needed for this tutorial)
         * The callback parameter executes the initMap() function
         -->
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyB55tMU30eKuGNxKoUx_8IDSj6f-k7ELik  &libraries=places&callback=initMap">
-        </script>
->>>>>>> Stashed changes
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyAZ-8P7mYd9H5_0PV9tIyzUomlreLuUY8M &libraries=places&callback=initMap">
+            </script>
+        >>>>>>> Stashed changes
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-    <script src="./app.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+        <script src="./app.js"></script>
 </body>
 
 </html>
