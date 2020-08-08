@@ -37,8 +37,6 @@ $(document).ready(function () {
         recovered.shift();
         deaths.shift()
 
-        console.log(state)
-
         total_active = data.statewise[0].active
         total_confirmed = data.statewise[0].confirmed
         total_recovered = data.statewise[0].recovered
