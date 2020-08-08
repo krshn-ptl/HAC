@@ -15,7 +15,6 @@ def predict():
     symptom1 = request.form['sym1']
     symptom2 = request.form['sym2']
     symptom3 = request.form['sym3']
-    print(type(symptom1), symptom2, symptom3)
     features = [0]*147
     dict = {' altered_sensorium':0, ' anxiety':1, ' blackheads':2, ' blister':3,
        ' bloody_stool':4, ' blurred_and_distorted_vision':5,
