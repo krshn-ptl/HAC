@@ -145,7 +145,7 @@
             </div>
         </div>
     </section>
-    <div id="map"></div>
+    <div id="ma p"></div>
     <script>
         function initMap() {
             let map;
@@ -164,6 +164,7 @@
                     curlon = Number(startPos.coords.longitude);
 
                     curloc = { lat: curlat, lng: curlon };
+                    console.log(curloc);
                     map = new google.maps.Map(
                         document.getElementById('map'), { zoom: 14, center: curloc });
 
