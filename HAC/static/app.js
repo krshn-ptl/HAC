@@ -1,8 +1,9 @@
 $(document).ready(function () {
     json_drpdwn_data('Symptom');
     function json_drpdwn_data(id) {
+        var synurl = "https://krshn-ptl.github.io/json-files/Symptom-severity.json"
         var html_code = '';
-        $.getJSON('Symptom-severity.json', function (data) {
+        $.getJSON(synurl, function (data) {
             html_code += '<option> Select ' + id + '</option>';
             $.each(data, function (key, value) {
                 if (id == 'Symptom') {
