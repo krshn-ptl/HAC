@@ -7,11 +7,12 @@ $(document).ready(function () {
             html_code += '<option> Select ' + id + '</option>';
             $.each(data, function (key, value) {
                 if (id == 'Symptom') {
-                    html_code += '<option value="+' + value.Symptom + '">' + value.Symptom + '</option>';
+                    html_code += '<option value="' + value.Symptom + '">' + value.Symptom + '</option>';
                 }
                 $('#dp1').html(html_code);
                 $('#dp2').html(html_code);
                 $('#dp3').html(html_code);
+                console.log(html_code)
             })
         })
     }
