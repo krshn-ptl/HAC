@@ -14,6 +14,7 @@ $(document).ready(function () {
             })
         })
     }
+
     var url = "https://api.covid19india.org/data.json"
 
     $.getJSON(url, function (data) {
