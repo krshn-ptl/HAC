@@ -2,7 +2,7 @@ $(document).ready(function () {
     json_drpdwn_data('Symptom');
     function json_drpdwn_data(id) {
         var html_code = '';
-        $.getJSON('Symptom-severity.json', function (data) {
+        $.getJSON('{{url_for(filename='Symptom-severity.json')}}', function (data) {
             html_code += '<option> Select ' + id + '</option>';
             $.each(data, function (key, value) {
                 if (id == 'Symptom') {
