@@ -10,13 +10,16 @@ def home():
     return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
-def predict():
-    name = request.form['name']
-    symptom1 = request.form['sym1']
-    symptom2 = request.form['sym2']
+def predict():                                              # Main code for predicting symptoms
+    name = request.form['name']                             # Accessing username
+    symptom1 = request.form['sym1']                               
+    symptom2 = request.form['sym2']                         # Fetching the three symptoms the user enters
     symptom3 = request.form['sym3']
-    print(symptom1, symptom2, symptom3)
-    features = [0]*147
+    print(symptom1, symptom2, symptom3)                     
+    features = [0]*147                                      # Initializing the zero array for symptoms
+    
+    # Dictionary for modifying the zero array
+    
     dict = {'altered_sensorium':0, 'anxiety':1, 'blackheads':2, 'blister':3,
        'bloody_stool':4, 'blurred_and_distorted_vision':5,
        'breathlessness':6, 'bruising':7, 'burning_micturition':8,
@@ -61,14 +64,19 @@ def predict():
        'ulcers_on_tongue':140, 'vomiting':141, 'weakness_in_limbs':142,
        'weakness_of_one_body_side':143, 'weight_gain':144, 'weight_loss':145,
        'yellowish_skin':146}
+    
+    ### Storing the index for user's symptoms using dictionary
     symptoms = []
     symptoms.append(dict[symptom1])
     symptoms.append(dict[symptom2])
     symptoms.append(dict[symptom3])
 
+    ### Modifying the array to be given to the model for prediction
     for i in range(147):
         if i in symptoms:
             features[i] = 1
+            
+    ### Predicting code
     pred = model.predict(features)
     return render_template('index.html', prediction_text='Hey {}, symptoms are {}, {}, {} and probable disease is {}'.format(name, symptom1, symptom2, symptom3, pred))
 
