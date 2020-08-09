@@ -78,6 +78,8 @@ def predict():                                              # Main code for pred
             
     ### Predicting code
     pred = model.predict(features)
+    
+    ### Returning predicted data
     return render_template('index.html', prediction_text='Hey {}, symptoms are {}, {}, {} and probable disease is {}'.format(name, symptom1, symptom2, symptom3, pred))
 
 if __name__ == '__main__':
